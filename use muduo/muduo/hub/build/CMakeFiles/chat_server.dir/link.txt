@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/chat_server.dir/main.cc.o CMakeFiles/chat_server.dir/hub.cc.o -o chat_server   -L/home/michael-377/build/release-install-cpp11/lib  -Wl,-rpath,/home/michael-377/build/release-install-cpp11/lib -lmuduo_net -lmuduo_base -lpthread 

@@ -1,0 +1,3 @@
+/home/michael-377/桌面/chatroom/client/build/CMakeFiles/chat_client.dir
+/home/michael-377/桌面/chatroom/client/build/CMakeFiles/edit_cache.dir
+/home/michael-377/桌面/chatroom/client/build/CMakeFiles/rebuild_cache.dir
