@@ -8,7 +8,7 @@ MyProtoMsg* MyProtoDecode::decode(muduo::net::Buffer* buf)
     uint8_t* headPtr = (uint8_t*)buf->peek();
     uint16_t server = *(uint16_t*)(headPtr);
     uint32_t msgLen = *(uint32_t*)(headPtr + 2);
-    if(buf->readableBytes() < msgLen)
+    if(buf->readableBytes() < msgLen || msgLen < MY_PROTO_HEAD_SIZE)
         return nullptr;
     std::string bodyStr((char*)buf->peek() + MY_PROTO_HEAD_SIZE,
                         msgLen - MY_PROTO_HEAD_SIZE);
