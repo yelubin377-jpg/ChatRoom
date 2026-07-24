@@ -99,6 +99,7 @@ public:
         {
             writerIndex_ = buffer_.size();
             append(extrabuf,n - writable);
+            return n;
         }
     }
 
