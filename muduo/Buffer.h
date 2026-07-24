@@ -3,7 +3,7 @@
 #include <string>
 #include <cstring>
 #include <cassert>
-
+#include <sys/uio.h>
 class Buffer
 {
 public:
@@ -102,6 +102,24 @@ public:
             return n;
         }
     }
-
-    
+    std::string retrieveAllAsString()
+    {
+        std::string retrieveAllAsString()
+        {
+            std::string result(peek(),readableBytes());
+            retrieve(readableBytes());
+            retrieve(len);
+            return result;
+        }
+    }
+    void prepend(const void* data, size_t len)
+    {
+        assert(len <= readerIndex_);
+        readerIndex_ -= len;
+        memcpy(begin(),data,len);
+    }
+private:
+    std::vector<char> buffer_;
+    size_t readerIndex_;
+    size_t writerIndex_;
 };
