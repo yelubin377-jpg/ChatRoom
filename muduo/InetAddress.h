@@ -3,20 +3,21 @@
 //struct sockaddr_in;
 //inet_pton();
 //htons()
-#include <string.h>
+#include <string>
+#include <cstring>
 
 
 class InetAddress
 {
 public:
-    explicit InetAddress(uint16_t port,std::string ip = "0.0.0.0");//防止InetAddress addr = 8080的出现，只要InetAdress addr(8080)
+    explicit InetAddress(uint16_t port,std::string ip = "0.0.0.0")//防止InetAddress addr = 8080的出现，只要InetAdress addr(8080)
     {
         memset(&addr_,0,sizeof(addr_));
         addr_.sin_family = AF_INET;
         addr_.sin_port = htons(port);
         inet_pton(AF_INET,ip.c_str(),&addr_.sin_addr);
     }
-    explicit InetAddress(const struct sockaddr_in& addr);
+    explicit InetAddress(const struct sockaddr_in& addr)
         : addr_(addr)
     {}
     const struct sockaddr* getSockAddr() const

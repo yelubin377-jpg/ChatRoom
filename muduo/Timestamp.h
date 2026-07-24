@@ -1,7 +1,7 @@
 #pragma once 
 #include <cstdint>
 #include <string>
-#
+#include <ctime>
 class Timestamp
 {
 public:
@@ -11,7 +11,7 @@ public:
     explicit Timestamp(int64_t microSecondsSinceEpoch)
         : microSecondsSinceEpoch_(microSecondsSinceEpoch)
     {}
-    static Timestamp now();
+    static Timestamp now()
     {
         struct timespec ts;
         clock_gettime(CLOCK_REALTIME,&ts);
@@ -23,7 +23,7 @@ public:
     }
     std::string toString() const
     {
-        return std::to_string(microSecondsSinceEpoch_)
+        return std::to_string(microSecondsSinceEpoch_);
     }
     std::string toFormattedString() const
     {

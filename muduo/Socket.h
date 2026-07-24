@@ -5,13 +5,13 @@
 class Socket : noncopyable
 {
 public:
-    explicit Socket(int sockfd) : sockfd_(sockfd){}
+    explicit Socket(int sockfd) : sockfd_(sockfd){}  //explicit
     ~Socket() { ::close(sockfd_);}
     int fd() const { return sockfd_; }
                  
     void bind(const InetAddress& addr)
     {
-        ::bind(sockfd_, addr.getSocketAddr(), sizeof(addr));
+        ::bind(sockfd_, addr.getSockAddr(), addr.getSockAddrLen());
     }
     void listen()
     {
