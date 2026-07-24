@@ -6,4 +6,6 @@
 
 - SOCK——NONBLOCK 非阻塞，没有新链接函数就立刻返回-1,后面程序跑
 
-- SOCK——CLOEXEC  Close On Exec 关掉
+- SOCK——CLOEXEC  Close On Exec 关掉子进程携带的父进程fd
+
+- 
